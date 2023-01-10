@@ -12,9 +12,11 @@ import authRoutes from "./routes/auth.js";
 import userRoutes from './routes/users.js';
 import eventRoutes from './routes/events.js';
 import { register } from "./controllers/auth.js";
+import { users, events } from "./data/index.js";
 import { createEvent } from "./controllers/events.js";
 import { verify } from "crypto";
 import { verifyToken } from "./middleware/auth.js";
+
 
 //MIDDLEWARE
 const __filename = fileURLToPath(import.meta.url);
