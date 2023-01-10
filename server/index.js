@@ -16,7 +16,8 @@ import { users, events } from "./data/index.js";
 import { createEvent } from "./controllers/events.js";
 import { verify } from "crypto";
 import { verifyToken } from "./middleware/auth.js";
-
+import User from "./models/User.js";
+import Event from "./models/events.js";
 
 //MIDDLEWARE
 const __filename = fileURLToPath(import.meta.url);
