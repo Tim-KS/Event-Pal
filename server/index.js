@@ -11,6 +11,7 @@ import { fileURLToPath } from "url";
 import authRoutes from "./routes/auth.js";
 import userRoutes from './routes/users.js';
 import { register } from "./controllers/auth.js";
+import { users, events } from "./data/index.js";
 
 //MIDDLEWARE
 const __filename = fileURLToPath(import.meta.url);

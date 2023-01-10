@@ -36,7 +36,8 @@ const UserSchema = new mongoose.Schema(
             min: 8,
         },
         interest: {
-            type: String,
+            type: Array,
+            default: [],
             require: true,
         },
         picturePath: {
