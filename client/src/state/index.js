@@ -4,7 +4,7 @@ const initialState = {
     mode: "light",
     user: null,
     token: null,
-    events: [],
+    Events: [],
 };
 
 export const authSlice = createSlice({
@@ -29,19 +29,19 @@ export const authSlice = createSlice({
                 console.error("user friends non-existent :(");
             }
         },
-        setevents: (state, action) => {
-            state.events = action.payload.events;
+        setEvents: (state, action) => {
+            state.Events = action.payload.Events;
         },
-        setevent: (state, action) => {
-            const updatedevents = state.events.map((event) => {
-                if (event._id === action.payload.event._id) return action.payload.event;
-                return event;
+        setEvent: (state, action) => {
+            const updatedEvents = state.Events.map((Event) => {
+                if (Event._id === action.payload.Event._id) return action.payload.Event;
+                return Event;
             });
-            state.events = updatedevents;
+            state.Events = updatedEvents;
         },
     },
 });
 
-export const { setMode, setLogin, setLogout, setFriends, setevents, setevent } =
+export const { setMode, setLogin, setLogout, setFriends, setEvents, setEvent } =
     authSlice.actions;
 export default authSlice.reducer;
