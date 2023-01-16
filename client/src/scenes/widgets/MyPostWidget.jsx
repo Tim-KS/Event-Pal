@@ -23,13 +23,13 @@ import UserImage from "components/UserImage";
 import WidgetWrapper from "components/WidgetWrapper";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setEvents } from "state";
+import { setPosts } from "state";
 
-const MyeventWidget = ({ picturePath }) => {
+const MyPostWidget = ({ picturePath }) => {
     const dispatch = useDispatch();
     const [isImage, setIsImage] = useState(false);
     const [image, setImage] = useState(null);
-    const [event, setEvent] = useState("");
+    const [post, setPost] = useState("");
     const { palette } = useTheme();
     const { _id } = useSelector((state) => state.user);
     const token = useSelector((state) => state.token);
@@ -37,24 +37,24 @@ const MyeventWidget = ({ picturePath }) => {
     const mediumMain = palette.neutral.mediumMain;
     const medium = palette.neutral.medium;
 
-    const handleevent = async () => {
+    const handlePost = async () => {
         const formData = new FormData();
         formData.append("userId", _id);
-        formData.append("description", event);
+        formData.append("description", post);
         if (image) {
             formData.append("picture", image);
             formData.append("picturePath", image.name);
         }
 
         const response = await fetch(`http://localhost:3001/events`, {
-            method: "event",
+            method: "POST",
             headers: { Authorization: `Bearer ${token}` },
             body: formData,
         });
-        const events = await response.json();
-        dispatch(setEvents({ events }));
+        const posts = await response.json();
+        dispatch(setPosts({ posts }));
         setImage(null);
-        setEvent("");
+        setPost("");
     };
 
     return (
@@ -63,8 +63,8 @@ const MyeventWidget = ({ picturePath }) => {
                 <UserImage image={picturePath} />
                 <InputBase
                     placeholder="What's on your mind..."
-                    onChange={(e) => setEvent(e.target.value)}
-                    value={event}
+                    onChange={(e) => setPost(e.target.value)}
+                    value={post}
                     sx={{
                         width: "100%",
                         backgroundColor: palette.neutral.light,
@@ -155,19 +155,19 @@ const MyeventWidget = ({ picturePath }) => {
                 )}
 
                 <Button
-                    disabled={!event}
-                    onClick={handleevent}
+                    disabled={!post}
+                    onClick={handlePost}
                     sx={{
                         color: palette.background.alt,
                         backgroundColor: palette.primary.main,
                         borderRadius: "3rem",
                     }}
                 >
-                    event
+                    POST
                 </Button>
             </FlexBetween>
         </WidgetWrapper>
     );
 };
 
-export default MyeventWidget;
+export default MyPostWidget;

@@ -1,45 +1,45 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setEvents } from "state";
-import EventWidget from "./PostsWidget";
+import { setPosts } from "state";
+import PostWidget from "./PostWidget";
 
-const EventsWidget = ({ userId, isProfile = false }) => {
+const PostsWidget = ({ userId, isProfile = false }) => {
     const dispatch = useDispatch();
-    const Events = useSelector((state) => state.Events);
+    const posts = useSelector((state) => state.posts);
     const token = useSelector((state) => state.token);
 
-    const getEvents = async () => {
-        const response = await fetch("http://localhost:3001/Events", {
+    const getPosts = async () => {
+        const response = await fetch("http://localhost:3001/posts", {
             method: "GET",
             headers: { Authorization: `Bearer ${token}` },
         });
         const data = await response.json();
-        dispatch(setEvents({ Events: data }));
+        dispatch(setPosts({ posts: data }));
     };
 
-    const getUserEvents = async () => {
+    const getUserPosts = async () => {
         const response = await fetch(
-            `http://localhost:3001/Events/${userId}/Events`,
+            `http://localhost:3001/posts/${userId}/posts`,
             {
                 method: "GET",
                 headers: { Authorization: `Bearer ${token}` },
             }
         );
         const data = await response.json();
-        dispatch(setEvents({ Events: data }));
+        dispatch(setPosts({ posts: data }));
     };
 
     useEffect(() => {
         if (isProfile) {
-            getUserEvents();
+            getUserPosts();
         } else {
-            getEvents();
+            getPosts();
         }
     }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
     return (
         <>
-            {Events.map(
+            {posts.map(
                 ({
                     _id,
                     userId,
@@ -52,10 +52,10 @@ const EventsWidget = ({ userId, isProfile = false }) => {
                     likes,
                     comments,
                 }) => (
-                    <EventWidget
+                    <PostWidget
                         key={_id}
-                        EventId={_id}
-                        EventUserId={userId}
+                        postId={_id}
+                        postUserId={userId}
                         name={`${firstName} ${lastName}`}
                         description={description}
                         location={location}
@@ -70,4 +70,4 @@ const EventsWidget = ({ userId, isProfile = false }) => {
     );
 };
 
-export default EventsWidget;
+export default PostsWidget;
