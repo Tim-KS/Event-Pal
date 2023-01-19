@@ -33,31 +33,41 @@ SO THAT other users can share my views on the concert or the band
 
 ## Acceptance Criteria
 
-GIVEN a functional Express.js API
-WHEN I add my database name, MySQL username, and MySQL password to an environment variable file
-THEN I am able to connect to a database using Sequelize
-WHEN I enter schema and seed commands
-THEN a development database is created and is seeded with test data
-WHEN I enter the command to invoke the application
-THEN my server is started and the Sequelize models are synced to the MySQL database
-WHEN I open API GET routes in Insomnia Core for categories, products, or tags
-THEN the data for each of these routes is displayed in a formatted JSON
-WHEN I test API POST, PUT, and DELETE routes in Insomnia Core
-THEN I am able to successfully create, update, and delete data in my database
+GIVEN a functional React APP
+WHEN I login in I am directed to my profile page
+THEN I am able to see my personal profile page
+WHEN I register as a new user I am set up with a profile
+THEN I can log in and see my personal profile page
+
 
 ## Technologies Used
 
 During the project we used the following technologies;
 
+### Front End
+- Mongo
 - React
 - GraphQL
-- MongoDB
 - Node.js
 - Express.js
 
+### Back End
+- Node.js
+- Express.js
+- Mongoose
+- JWT
+- Multer
+
 ## Future Development
 
-Future development projects will include instant messaging between users, links to purchase concert tickets and venue information.
+Future development projects will include;
+
+- users can post their own events
+- post reviews, pictures and comments
+- instant messaging between users
+- links to purchase concert tickets
+- live update of upcoming events
+- venue information
 
 ## Credit
 
