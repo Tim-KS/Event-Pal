@@ -4,8 +4,9 @@
   "description": "## Table of Conents",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+    "start": "node server.js",
+    "heroku-postbuild": "cd client && npm install --only=dev && npm install && npm run build"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Tim-KS/Event-Pal.git"
@@ -14,5 +15,8 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Tim-KS/Event-Pal/issues"
-  }
+  },
+  "engines": {
+    "node": "16.18.0"
+}
 }
