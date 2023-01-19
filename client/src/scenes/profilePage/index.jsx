@@ -8,6 +8,8 @@ import MyPostWidget from "scenes/widgets/MyPostWidget";
 import PostsWidget from "scenes/widgets/PostsWidget";
 import UserWidget from "scenes/widgets/UserWidget";
 
+import Events from "components/Events";
+
 const ProfilePage = () => {
     const [user, setUser] = useState(null);
     const { userId } = useParams();
@@ -52,6 +54,11 @@ const ProfilePage = () => {
                     <Box m="2rem 0" />
                     <PostsWidget userId={userId} isProfile />
                 </Box>
+                <div>
+                <Events></Events> 
+
+                </div>
+                
             </Box>
         </Box>
     );

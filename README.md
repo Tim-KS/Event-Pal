@@ -18,7 +18,7 @@ To develop an application that allows concert goers to find and connect with oth
 
 Github: https://github.com/Tim-KS/Event-Pal
 
-Heroku: 
+Heroku: https://lit-oasis-88275.herokuapp.com/
 
 
 ## User Story
