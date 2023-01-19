@@ -1,0 +1,19 @@
+{
+  "name": "event-pal",
+  "version": "1.0.0",
+  "description": "## Table of Conents",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Tim-KS/Event-Pal.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Tim-KS/Event-Pal/issues"
+  },
+  "homepage": "https://github.com/Tim-KS/Event-Pal#readme"
+}
